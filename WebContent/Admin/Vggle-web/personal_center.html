@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://static.bootcss.com/www/assets/css/site.min.css?v3" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/personal_center.css">
+  <title>个人中心</title>
+ </head>
+
+ <body class="home-template" style="background-color:#DDD;">
+ <div class="navbar-fixed-top">
+ 	<iframe src="top.html" width="100%" height="30px" scrolling="no" frameborder="0"></iframe>
+ </div>
+ <div class="nav  logo_line" style="background-color:#FFF;">
+ 	<div class="container">
+    	<div class="col-md-9"><img src="img/redlogo.jpg"></div>
+        <div class="col-md-2"><img src="img/redlogo_right.jpg"></div>
+    </div>
+ </div><!--top-->
+<div class="container" style="background-color:#FFF;">
+	
+	<div class="row row_title">
+    	<h3 class="pull-left col-md-10" style="color:#F00;">我的物谷</h3>
+    	<a href="#" class="col-md-2" style="color:#F00; margin-top:20px; float:right"><i class="fa fa-bell-o"></i>物谷在线客服</a>
+    </div>
+   
+   <div class="row">
+   		<div class="col-md-2" id="menu">
+        	<a class="btn btn-default btn-large row menu_item" href="#total_order"><i class="fa fa-list-alt"></i> 我的订单</a>
+            <a class="btn btn-default btn-large row menu_item" href="#attention"><i class="fa fa-star"></i> 我的关注</a>
+            <a class="btn btn-default btn-large row menu_item" href="balance.html"><i class="fa fa-key"></i> 小金库</a>
+            <a class="btn btn-default btn-large row menu_item" href="returned_goods.html"><i class="fa fa-delicious"></i> 返修退换货</a>
+            <a class="btn btn-default btn-large row menu_item" href="#"><i class="fa fa-asterisk"></i> 个人信息设置</a>
+            <a class="btn btn-default btn-large row menu_item" href="#"><i class="fa fa-question-circle"></i> 常见问题</a>
+        </div>
+        <div class="col-md-10">
+            <div class="panel panel-default" style="margin-top:5px;display:block" id="myorder">
+                 <div class="panel-heading" id="total">
+                 	<a name="total_order"  class="total_order">全部订单</a> 
+                 	<div class="form-group input-group col-md-3 pull-right has-error" style="margin-top:-5px; margin-bottom:5px;">
+                    	<input type="text" class="form-control" placeholder="订单号/商品名">
+                        <span class="input-group-btn">
+                            <button class="btn btn-outline btn-danger"type="button"><i class="fa fa-search"></i></button>
+                        </span>
+                   </div>
+                 </div>
+                 <div class="panel-body" style="margin-top:-5px;">
+                    <div class="row" style="text-align:center">
+                		<div class="col-md-4">订单信息</div>
+                   		<div class="col-md-2">收货人</div>
+                    	<div class="col-md-6">
+                    		<div class="col-md-3">订单金额</div>
+                        	<div class="col-md-3">
+                            	<select>
+                                	<option>全部时间</option>
+                                    <option>最近三个月</option>
+                                    <option>2014年</option>
+                                    <option>2013年</option>
+                                    <option>2012年</option>
+                                </select>
+                            </div>
+                        	<div class="col-md-3">
+                            	<select>
+                                	<option>全部状态</option>
+                                    <option>等待收货</option>
+                                    <option>等待付款</option>
+                                    <option>等待自提</option>
+                                    <option>已完成</option>
+                                    <option>已取消</option>
+                                </select>
+                            </div>
+                        	<div class="col-md-3">操作</div>
+                    	</div>
+                	</div>
+                    <div class="row order_detail" style="font-size:12px; padding-top:20px; padding-bottom:10px;">
+                		<div class="col-md-4" style="text-align:left">
+                        	<a href="medicine_detail.html"><img src="img/m2.jpg" width="50px" height="50px"></a>
+                            <a href="medicine_detail.html"><img src="img/m1.jpg" width="50px" height="50px"></a>
+                            
+                        </div>
+                   		<div class="col-md-2">喵星人（用户名）</div>
+                    	<div class="col-md-6">
+                    		<div class="col-md-3">
+                            	<p>￥556<br><small>物谷币支付</small></p>
+                                
+                            </div>
+                        	<div class="col-md-3" style="color:#999">
+                            	<span>2014-12-26<br><span>11:26:09</span></span>
+                            </div>
+                        	<div class="col-md-3" style="color:#999">
+                            	<span>已完成</span>
+                            </div>
+                        	<div class="col-md-3">
+                            	<a href="#">查看</a><span>|</span>
+                                <a href="#">删除</a><br>
+                                <a href="returned_goods.html">申请返修/退换</a>
+                            </div>
+                    	</div>
+                	</div><!--订单详情-->    
+                    <div class="row order_detail" style="font-size:12px;padding-top:20px; padding-bottom:10px;">
+                		<div class="col-md-4" style="text-align:left">
+                        	<a href="medicine_detail.html"><img src="img/recommend_1.jpg" width="50px" height="50px"></a>
+                            <a href="medicine_detail.html"><img src="img/m2.jpg" width="50px" height="50px"></a>
+                            <a href="medicine_detail.html"><img src="img/sort_1.jpg" width="50px" height="50px"></a>
+                            <a href="medicine_detail.html"><img src="img/m1.jpg" width="50px" height="50px"></a>
+                            
+                        </div>
+                   		<div class="col-md-2">汪星人</div>
+                    	<div class="col-md-6">
+                    		<div class="col-md-3">
+                            	<p>￥50.9<br><small>在线支付</small></p>
+                                
+                            </div>
+                        	<div class="col-md-3" style="color:#999">
+                            	<span>2014-12-26<br><span>11:26:09</span></span>
+                            </div>
+                        	<div class="col-md-3" style="color:#999">
+                            	<span>等待付款</span>
+                            </div>
+                        	<div class="col-md-3">
+                            	<a href="#">查看</a>
+                               <br>
+                                <a href="#">撤销订单</a>
+                            </div>
+                    	</div>
+                	</div>
+                    <div class="row order_detail" style="font-size:12px;padding-top:20px; padding-bottom:10px;">
+                		<div class="col-md-4" style="text-align:left">
+                        	
+                           
+                            <a href="medicine_detail.html"><img src="img/m1.jpg" width="50px" height="50px"></a>
+                            
+                        </div>
+                   		<div class="col-md-2">喵星人</div>
+                    	<div class="col-md-6">
+                    		<div class="col-md-3">
+                            	<p>￥50.9<br></p>
+                                
+                            </div>
+                        	<div class="col-md-3" style="color:#999">
+                            	<span>2014-12-26<br><span>11:26:09</span></span>
+                            </div>
+                        	<div class="col-md-3" style="color:#999">
+                            	<span>已取消</span>
+                            </div>
+                        	<div class="col-md-3">
+                            	<a href="#">查看</a>
+                               <br>
+                                <a href="#">删除记录</a>
+                            </div>
+                    	</div>
+                	</div>
+                 </div>
+                       
+             </div><!--全部订单-->
+        
+           <div class="panel panel-default" style="margin-top:5px;" id="myattention">
+                 <div class="panel-heading" id="total">
+                 	<a name="attention"  class="total_order">我的关注</a>
+                 </div>
+                 <div class="panel-body" style="margin-top:-5px;">
+                    <div class="row" style="text-align:center">
+                		<div class="col-lg-6">商品</div>
+                    	<div class="col-lg-6">
+                        	<span class="col-lg-6">价格</span>
+                            <span class="col-lg-6">操作</span>
+                        </div>
+                	</div>
+                    <div class="row order_detail" style="font-size:12px">
+                		<div class="col-md-6" style="text-align:left">
+                        	<div class="col-lg-5">
+                            	<label> 
+                                	<input type="checkbox" value="" style="margin-right:20px;"><a href="product_detail.html"><img src="img/index_hot2.jpg" width="100px" height="100px"></a>
+                                </label> 
+                            </div>
+                            <div class="col-lg-7">
+                            	<h4><a href="product_detail.html" style="color:#000; font-size:16px">商品名称以及简单描述卡卡卡啦啦啦</a></h4>
+                                <span class="col-md-11" style="color:#ECB013;font-size:16px; margin-left:-15px;">
+                    				<i class="glyphicon glyphicon-star pull-left"></i>
+                                    <i class="glyphicon glyphicon-star pull-left"></i>
+                                    <i class="glyphicon glyphicon-star pull-left"></i>
+                                    <i class="glyphicon glyphicon-star pull-left"></i>
+                                    <i class="glyphicon glyphicon-star pull-left"></i>
+                    			</span>
+                                <br>
+                                 <span><a href="product_detail.html#evaluate">已有<span>121</span>人评价</a></span> 
+                                
+                            </div>
+                        </div>
+                    	<div class="col-md-6" >
+                        	<div class="col-lg-6" style="margin-top:20px;">
+                        		<span >价格：￥125</span><br>
+                            	<span>物谷币支付：￥120</span>
+                            </div>
+                            <div class="col-lg-6" style="margin-top:20px;">
+                            	<a href="order_products.html" style="color:#C00">加入购物车</a><br>
+                                <a href="#" style="color:#999">取消关注</a>
+                            </div>
+                    	</div>
+                	</div>订单详情    
+                    <div class="row order_detail" style="font-size:12px">
+                		<div class="col-md-6" style="text-align:left">
+                        	<div class="col-lg-5">
+                            	<label> 
+                                	<input type="checkbox" value="" style="margin-right:20px;"><a href="product_detail.html"><img src="img/index_hot2.jpg" width="100px" height="100px"></a>
+                                </label> 
+                            </div>
+                            <div class="col-lg-7">
+                            	<h4><a href="product_detail.html" style="color:#000; font-size:16px">商品名称以及简单描述卡卡卡啦啦啦</a></h4>
+                                <span class="col-md-11" style="color:#ECB013;font-size:16px; margin-left:-15px;">
+                    				<i class="glyphicon glyphicon-star pull-left"></i>
+                                    <i class="glyphicon glyphicon-star pull-left"></i>
+                                    <i class="glyphicon glyphicon-star pull-left"></i>
+                                    <i class="glyphicon glyphicon-star pull-left"></i>
+                                    <i class="glyphicon glyphicon-star pull-left"></i>
+                    			</span>
+                                <br>
+                                 <span><a href="product_detail.html#evaluate">已有<span>121</span>人评价</a></span> 
+                                
+                            </div>
+                        </div>
+                    	<div class="col-md-6" >
+                        	<div class="col-lg-6" style="margin-top:20px;">
+                        		<span >价格：￥125</span><br>
+                            	<span>物谷币支付：￥120</span>
+                            </div>
+                            <div class="col-lg-6" style="margin-top:20px;">
+                            	<a href="order_products.html" style="color:#C00">加入购物车</a><br>
+                                <a href="#" style="color:#999">取消关注</a>
+                            </div>
+                    	</div>
+                	</div>
+                     <div class="row order_detail" style="font-size:12px; text-align:left;">
+                     	<label style="font-weight:lighter"> 
+                        	<input type="checkbox" value="" style="margin-right:20px; margin-left:30px;">全选
+                        </label> 
+                        <a href="order_products.html" style="color:#C00; margin-left:20px; margin-right:20px">加入购物车</a>
+                        <a href="#" style="color:#999;">取消关注</a>
+                     </div>
+                      <div class="row order_detail">
+                      	<div class="row" style="color:#C00; font-size:14px; text-align:left; padding-left:30px;"><label>根据您的关注为你推荐</label></div>
+                        <div class="row" style="text-align:left; padding-left:30px; padding-right:30px; font-size:12px;">
+                        	<table class=" table table-striped table-bordered" style="text-align:center"><tbody>
+                            	<tr>
+                                	<td>
+                                    	<a href="product_detail.html" style="color:#000;"><img src="img/m2.jpg" width="200px" height="200px;"><br>
+                                    	商品名称<br><span style="color:#666">物谷价：</span><span style="color:#C00">￥120</span></a>
+                                    </td>
+                                    <td>
+                                    	<a href="product_detail.html" style="color:#000;"><img src="img/m2.jpg" width="200px" height="200px;"><br>
+                                    	商品名称<br><span style="color:#666">物谷价：</span><span style="color:#C00">￥120</span></a></td>
+                                    <td>
+                                    	<a href="product_detail.html" style="color:#000;"><img src="img/m2.jpg" width="200px" height="200px;"><br>
+                                    	商品名称<br><span style="color:#666">物谷价：</span><span style="color:#C00">￥120</span></a></td>
+                                    <td>
+                                    	<a href="product_detail.html" style="color:#000;"><img src="img/m3.jpg" width="200px" height="200px;"><br>
+                                    	商品名称<br><span style="color:#666">物谷价：</span><span style="color:#C00">￥120</span></a>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </div>
+                      </div>
+                 </div>
+                       
+             </div><!--我的关注-->
+             
+       	</div>
+   </div>
+</div> 
+
+<Iframe src="bottom_1.html" width="100%" height="150px" scrolling="no" frameborder="0"></iframe> 
+<!--bottom-->
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://cdn.bootcss.com/unveil/1.3.0/jquery.unveil.min.js"></script>
+<script src="http://cdn.bootcss.com/scrollup/2.4.0/jquery.scrollUp.min.js"></script>
+<script src="http://cdn.bootcss.com/toc/0.3.2/toc.min.js"></script>
+<script src="http://static.bootcss.com/www/assets/js/site.min.js"></script>
+<script src="http://cdn.bootcss.com/holder/2.4.1/holder.js"></script>
+<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+ </body>
+</html>

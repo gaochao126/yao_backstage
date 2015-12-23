@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiuyi.yao.dao.product.FormatDao">
+	<!-- 1.添加规格 -->
+	<insert id="insertFormat" parameterType="FormatDto">
+		insert into Formats 
+		(
+			format_id,		prod_id,		prod_format,		prod_unit,		prod_pack,		prod_price, 		prod_sku,		format_status
+		)
+		values
+		(
+			#{format_id},	#{prod_id},		#{prod_format},		#{prod_unit},	#{prod_pack},	#{prod_price},		#{prod_sku},	#{format_status}
+		)
+	</insert>
+</mapper>
