@@ -68,9 +68,14 @@ public class ProductServiceImpl implements ProductService {
 		if (!Util.isNotEmpty(productDto.getProd_function())) {
 			throw new BusinessException("请填写功能主治");
 		}
-		// if (!Util.isNotEmpty(productDto.getImgSrcs())) {
-		// throw new BusinessException("请选择图片");
-		// }
+		if (!Util.isNotEmpty(productDto.getImgSrcs())) {
+			throw new BusinessException("请选择图片");
+		}
+
+		// 设置拼音
+		productDto.setProd_pinyin(productDto.getProd_pinyin().toLowerCase());
+		productDto.setProd_firstABC(productDto.getProd_firstABC().toLowerCase());
+
 		System.out.println("typeId" + productDto.getType_id());
 		System.out.println("secondId" + productDto.getSecond_id());
 		System.out.println("thirdId" + productDto.getThird_id());
