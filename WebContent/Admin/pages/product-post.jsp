@@ -59,6 +59,7 @@
     <script type="text/javascript" src="../js/jquery-form.js"></script>
     <script type="text/javascript" src="../js/common.js"></script>
     <script type="text/javascript" src="../js/laypage/laypage.js"></script>
+    <script type="text/javascript" src="../js/pinyin.js"></script>
 </head>
 
 
@@ -95,7 +96,7 @@
             </div>
             <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
+           <%--  <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
@@ -302,7 +303,7 @@
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
-            </ul>
+            </ul> --%>
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
@@ -326,7 +327,7 @@
                             <a href="#"><i class="fa fa-hand-o-right fa-fw"></i> 产品管理 <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li class="active">
-                                    <a href="toaddprod!haveVerno">发布产品</a>
+                                    <a href="prod_toInsert.html">发布产品</a>
                                 </li>
                                 <li>
                                     <a href="product-modify.html">修改产品</a>
@@ -549,19 +550,19 @@
                               
                     <div class="col-lg-12 row_name">
                     	<span class="col-lg-1">名称：</span>
-                        <input type="text" class="input_size" name="productDto.prod_name" id="prodname" placeholder="必填内容">
+                        <input type="text" class="input_size" name="productDto.prod_name" id="prod_name" placeholder="必填内容">
                     </div>
                     <div class="col-lg-12 row_name">
                     	<span class="col-lg-1">通用名称：</span>
-                        <input type="text" class="input_size" name="productDto.prod_commonName" id="prodname" placeholder="选填内容">
+                        <input type="text" class="input_size" name="productDto.prod_commonName" id="prod_commonName" placeholder="选填内容">
                     </div>
                     <div class="col-lg-12 row_name">
                     	<span class="col-lg-1">拼音：</span>
-                        <input type="text" class="input_size" name="productDto.prod_pinyin" id="prodname" placeholder="必填内容">
+                        <input type="text" class="input_size" name="productDto.prod_pinyin" id="prod_pinyin" placeholder="必填内容" onfocus="getFile()">
                     </div>
                     <div class="col-lg-12 row_name">
                     	<span class="col-lg-1">拼音简写：</span>
-                        <input type="text" class="input_size" name="productDto.prod_firstABC" id="prodname" placeholder="必填内容">
+                        <input type="text" class="input_size" name="productDto.prod_firstABC" id="prod_firstABC" placeholder="必填内容" onfocus="getFirst()">
                     </div>
                    <div class="col-lg-12 row_name">
                         <span class="col-lg-1">功能主治：</span>
@@ -684,6 +685,21 @@
 				}
 			});
 	    }
+	    
+	    //根据药品名字获得拼音
+	    function getFile(){
+	        var n = $("#prod_name").val();
+	        var p = pinyin.getFullChars(n);
+	        $("#prod_pinyin").val(p);
+	    }
+
+	    //根据药品名字获得首字母
+	    function getFirst(){
+	        var n = $("#prod_name").val();
+	        var p = pinyin.getCamelChars(n);
+	        $("#prod_firstABC").val(p);
+	    }
+	    
     </script>
 </body>
 
