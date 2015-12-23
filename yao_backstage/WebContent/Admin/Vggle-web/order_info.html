@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://static.bootcss.com/www/assets/css/site.min.css?v3" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/order_products.css">
+  <script language="javascript" src="js/PCASClass.js"></script>
+  <title>订单信息</title>
+  
+ </head>
+ 
+
+ <script type="text/javascript">
+    function showconsignee(){
+        var div = document.getElementById("basicInfo");
+        if (div.style.display == "block") {
+            div.style.display = "none";
+        } else if (div.style.display == "none") {
+            div.style.display = "block"
+        }
+    } 
+	function showpay(){
+        var div = document.getElementById("payway");
+        if (div.style.display == "block") {
+            div.style.display = "none";
+        } else if (div.style.display == "none") {
+            div.style.display = "block"
+        }
+    } 
+	function showinvoice(){
+        var div = document.getElementById("invoice");
+        if (div.style.display == "block") {
+            div.style.display = "none";
+        } else if (div.style.display == "none") {
+            div.style.display = "block"
+        }
+    } 
+	function showremark(){
+        var div = document.getElementById("remark");
+        if (div.style.display == "block") {
+            div.style.display = "none";
+        } else if (div.style.display == "none") {
+            div.style.display = "block"
+        }
+    } 
+</script>
+ 
+ 
+ <body class="home-template" style="background-color:#DDD">
+ <div class="navbar-fixed-top">
+ 	<iframe src="top.html" width="100%" height="30px" scrolling="no" frameborder="0"></iframe>
+ </div>
+ <div class="nav logo_line">
+ 	<div class="container">
+    	<div class="col-md-9"><img src="img/redlogo.jpg"></div>
+        <div class="col-md-2"><img src="img/redlogo_right.jpg"></div>
+    </div>
+ </div>
+ <div class="container container_style">
+ 	<div class="row">
+    	<div class="col-md-4 order_title_unchoose2">我的购物袋</div>
+        <div class="col-md-4 order_title_choose">填写订单信息</div>
+        <div class="col-md-4 order_title_unchoose2">成功提交订单</div>
+    </div>
+    <div class="row row_head">
+    	<label>收货人信息&nbsp;&nbsp;<small><a herf="#" onClick="showconsignee()">[关闭]</a></small> </label>
+    </div>
+   <div class="row" id="basicInfo" style="display:block">
+   		<div class="row basic_info">
+        	<div class="col-md-1"><p class="basic_info_text pull-right"> 收货人</p></div>
+            <div class="col-md-11"><input type="text" style="width:350px;"></div>
+        </div>
+        <div class="row basic_info">
+        	<label class="col-md-1" style="padding-left:35px;">省份</label>
+            <div class="col-md-3">
+            	<div class="form-group">
+                    <select name="province3" class="col-md-9"></select>
+                    <label class="col-md-3">省</label>
+                </div>
+            </div>
+            <div class="col-md-3" style="margin-left:-40px;">
+            	<div class="form-group">
+                    <select class="col-md-9" name="city3"></select>
+                    <label class="col-md-3">市</label>
+                </div>
+            </div>
+            <div class="col-md-3" style="margin-left:-40px;">
+                    <select class="col-md-9" name="area3"></select>
+            </div>
+        </div> 
+        <div class="row basic_info">
+        	<div class="col-md-1"><p class="basic_info_text pull-right"> 详细地址</p></div>
+            <div class="col-md-11"><input type="text" style="width:350px;"></div>
+        </div>
+        <div class="row basic_info">
+        	<div class="col-md-1"><p class="basic_info_text pull-right"> 手机号码</p></div>
+            <div class="col-md-2" style="margin-right:25px;"><input type="text" style="width:200px;"></div>
+            <div class="col-md-1"><p class="basic_info_text pull-right"> 固定电话</p></div>
+            <div class="col-md-3"><input type="text" style="width:200px;"></div>
+        </div>
+        <div class="row basic_info">
+        	<div class="col-md-1"><p class="basic_info_text pull-right"> 邮   箱</p></div>
+            <div class="col-md-11"><input type="email" style="width:200px;"></div>
+        </div>
+        <div class="row" align="center" style="margin-bottom:10px; margin-top:10px;">
+        	<button type="button" class="btn btn-danger" style="width:150px;">保存并下一步</button>
+        </div>
+   </div><!--收货人信息隐藏层-->
+   <div class="row row_head">
+    	<label>支付方式&nbsp;&nbsp;<small><a herf="#" onClick="showpay()">[修改]</a></small> </label>
+   </div>
+   <div class="row" id="payway" style="display:block">
+   		<label class="row basic_info">在线支付</label>
+   		<div class="row basic_info">
+        	<div style="margin-left:70px; margin-top:-10px;">
+            	<label class="row" style="font-size:12px">支持以下银行在线付款</label>
+                <div class="form-group">
+                     <label class="radio-inline">
+                     <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked=""><img src="img/中国工商.jpg" width="136px" height="36px">
+                     </label>
+                     <label class="radio-inline">
+                     <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2"><img src="img/交通.jpg" width="136px" height="36px">
+                     </label>
+                     <label class="radio-inline">
+                     <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3"><img src="img/民生.jpg" width="136px" height="36px">
+                     </label>
+                     <label class="radio-inline">
+                     <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3"><img src="img/浦发.jpg" width="136px" height="36px">
+                     </label>
+                     <label class="radio-inline">
+                     <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3"><img src="img/中国建设.jpg" width="136px" height="36px">
+                     </label>
+                     <label class="radio-inline">
+                     <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3"><img src="img/中国农业.jpg" width="136px" height="36px">
+                     </label>
+               </div>
+               <div class="form-group">
+                     <label class="radio-inline">
+                     <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked=""><img src="img/中国银行.jpg" width="136px" height="36px">
+                     </label>
+                     <label class="radio-inline">
+                     <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2"><img src="img/中信.jpg" width="136px" height="36px">
+                     </label>
+                     <label class="radio-inline">
+                     <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3"><img src="img/招商.jpg" width="136px" height="36px">
+                     </label>
+               </div>
+               <label class="row" style="font-size:12px">支持以下支付平台</label>
+               <div class="form-group">
+                     <label class="radio-inline">
+                     <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked=""><img src="img/支付宝.jpg" width="136px" height="36px">
+                     </label>
+                     <label class="radio-inline">
+                     <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2"><img src="img/财付通.jpg" width="136px" height="36px">
+                     </label>
+                     <label class="radio-inline">
+                     <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3"><img src="img/易宝支付.jpg" width="136px" height="36px">
+                     </label>
+               </div>
+               
+            </div>
+            <div class="row" align="center" style="margin-bottom:10px; margin-top:10px;">
+        		<button type="button" class="btn btn-danger" style="width:150px; margin-left:-30px;">保存并下一步</button>
+        	</div>
+        </div>
+   </div><!--支付方式隐藏层-->
+   <div class="row row_head">
+    	<label>发票信息&nbsp;&nbsp;<small><a herf="#" onClick="showinvoice()">[修改]</a></small> </label>
+   </div>
+   <div class="row" id="invoice" style="display:none">
+   		<div class="form-group" style="margin-left:10px; margin-top:10px;">
+            <div class="radio">
+            	<label style="font-size:12px; font-weight:bold">
+            		<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >需要发票
+            	</label>
+                <div class="invoice_text">
+                	<label>发票类型&nbsp;&nbsp;
+                	<select style="width:150px;">
+                    	<option>单位</option>
+                        <option>个人</option>
+                    </select>
+                    </label>
+                </div>
+                <div class="invoice_text">
+                	<label>发票内容&nbsp;&nbsp;
+                    	<input type="text" style="width:150px;" placeholder="&nbsp;&nbsp;发票抬头"><small style="margin-left:10px; color:#999">(您所填写的信息系统将自动打印到发票上，请您谨慎填写)</small>
+                    </label>
+                </div>
+                <div class="invoice_text">
+                	<label>发票内容&nbsp;&nbsp;
+                	<select style="width:150px;">
+                    	<option>鞋帽</option>
+                        <option>中西医药</option>
+                        <option>保健品</option>
+                        <option>食品</option>
+                    </select>
+                    </label>
+                </div>
+            </div>
+            <div class="radio">
+            	<label style="font-size:12px; font-weight:bold">
+            		<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2" checked="">不需要发票
+            	</label>
+            </div>
+    	</div>
+        <div class="row" align="center" style="margin-bottom:10px; margin-top:10px;">
+        	<button type="button" class="btn btn-danger" style="width:150px;">保存并下一步</button>
+        </div>
+   </div><!--发票信息隐藏层-->
+   <div class="row row_head">
+    	<label>配送信息及备注&nbsp;&nbsp;<small><a herf="#" onClick="showremark()">[修改]</a></small> </label>
+   </div>
+   <div class="row" id="remark" style="display:none">
+   		<div class="form-group" style="margin-left:10px; margin-top:10px;">
+            <div class="invoice_text">
+        	<label>送货时间&nbsp;&nbsp;</label>
+                <select>
+                <option>工作日休息日节假日均可送货</option>
+                <option>只工作日送货，休息日节假日不送货</option>
+                <option>只休息日或节假日送货</option>
+                <option>白天没人尽快安排其他时间送</option>
+                </select>
+           
+           </div>
+           <div class="invoice_text">
+           <label>送货方式&nbsp;&nbsp;</label>
+        	<label class="radio-inline">
+                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked="">快递
+           </label>
+           </div>
+           <div class="invoice_text" style="float:left">
+        		<label >备注信息&nbsp;&nbsp;</label><textarea style="width:300px; float:right" class="form-control" rows="3"></textarea>
+           </div>
+           
+        </div>
+   </div><!-- 备注信息隐藏层-->
+    <div class="row row_head">
+    	<label>商品信息确认&nbsp;&nbsp;</label>
+    </div>
+    
+   <div class="row" id="remark" style="display:block">
+   		<div class="form-group" style="margin-left:10px; margin-top:10px;">
+        	<div class="row row_product_info" style="background-color:#EBEBEB;">
+            	<div class="col-md-6">商品</div>
+                <div class="col-md-6">
+                	<span class="col-md-4">物谷价</span>
+                    <span class="col-md-5">优惠</span>
+                    <span class="col-md-3">数量</span>
+                </div>
+            </div>
+            <div class="row row_product_info">
+            	<div class="col-md-6">
+                	<div class="col-md-5">
+                    	<img src="img/recommend_1.jpg" width="100px" height="100px">
+                    </div>
+                    <div class="col-md-7" style="text-align:left; margin-top:20px;">
+                    	<p>New Balance新百伦NB女鞋复古鞋跑鞋</p>
+                        <p>产品编号：1234567</p>
+                    </div>
+                </div>
+                <div class="col-md-6" style="margin-top:20px;">
+                	<label class="col-md-4" style="color:#000">￥120</label>
+                    <span class="col-md-5" style="color:#F00">返现￥10.0</span>
+                    <span class="col-md-3">1</span>
+                </div>
+                
+            </div><!--第一条产品信息-->
+            <div class="row row_product_info">
+            	<div class="col-md-6">
+                	<div class="col-md-5">
+                    	<img src="img/recommend_1.jpg" width="100px" height="100px">
+                    </div>
+                    <div class="col-md-7" style="text-align:left; margin-top:20px;">
+                    	<p>New Balance新百伦NB女鞋复古鞋跑鞋</p>
+                        <p>产品编号：1234567</p>
+                    </div>
+                </div>
+                <div class="col-md-6" style="margin-top:20px;">
+                	<label class="col-md-4" style="color:#000">￥120</label>
+                    <span class="col-md-5" style="color:#F00">返现￥10.0</span>
+                    <span class="col-md-3">1</span>
+                </div>
+                
+            </div><!--第2条产品信息-->
+            <div class="row row_product_summarize">
+            	<div class="col-md-7" style="text-align:left; ">
+                <span style="color:#F00"><i class="fa fa-plus-circle"></i>	<a href="#" style="color:#333">使用优惠券抵消部分总额</a></span><br>
+                <span style="color:#F00"><i class="fa  fa-check-circle"></i>	<a href="#" style="color:#333">使用物谷币购买</a></span><br>
+                <span style="color:#F00"><i class="fa fa-question-circle"></i>	<a href="#" style="color:#333">如何获得物谷币</a></span>
+                </div>
+                <div class="col-md-5">
+                	<div class="row">
+                		<div class="col-md-8" style="text-align:right">
+                    		<p>共<span style="color:#F00">2</span>件商品，总额：</p>
+                        	<p>返现：</p>
+                        	<p>运费：</p>
+                        	<p>优惠券：</p>
+                        	<label style="font-size:14px;">应付总额：</label>
+                             
+                    	</div>
+                    	<div class="col-md-4 pull-right" style="text-align:left">
+                    		<p>￥200元</p>
+                        	<p>￥10元</p>
+                        	<p>￥0.00元</p>
+                        	<p>￥0.00元</p>
+                        	<label style="color:#F00;font-size:16px;">￥200元</label>
+                           
+                   		</div>
+                         
+                 	</div>
+                    <div class="row">
+                    	<div class="col-md-7 pull-right"><a href="#" class="btn btn-danger" style="width:150px; margin-top:10px;">提交订单</a></div>
+                    </div>
+                   
+                </div>
+            </div><!--总计结算-->
+        </div>
+   </div><!-- 商品信息确认-->
+</div><!--container-->
+
+<Iframe src="bottom_1.html" width="100%" height="150px" scrolling="no" frameborder="0"></iframe>
+<script language="javascript" defer>
+new PCAS("province3","city3","area3");
+</script>
+
+
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://cdn.bootcss.com/unveil/1.3.0/jquery.unveil.min.js"></script>
+<script src="http://cdn.bootcss.com/scrollup/2.4.0/jquery.scrollUp.min.js"></script>
+<script src="http://cdn.bootcss.com/toc/0.3.2/toc.min.js"></script>
+<script src="http://static.bootcss.com/www/assets/js/site.min.js"></script>
+<script src="http://cdn.bootcss.com/holder/2.4.1/holder.js"></script>
+<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+ </body>
+</html>

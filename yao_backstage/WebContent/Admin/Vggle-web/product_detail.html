@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>服饰详情</title>
+   <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="http://static.bootcss.com/www/assets/css/site.min.css?v3" rel="stylesheet">
+	<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-precomposed.png">
+	<link rel="stylesheet" type="text/css" href="css/product_detail.css">
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="http://cdn.bootcss.com/unveil/1.3.0/jquery.unveil.min.js"></script>
+	<script src="http://cdn.bootcss.com/scrollup/2.4.0/jquery.scrollUp.min.js"></script>
+	<script src="http://cdn.bootcss.com/toc/0.3.2/toc.min.js"></script>
+	<script src="http://static.bootcss.com/www/assets/js/site.min.js"></script>
+
+<script type="text/javascript"> 
+function BtHide(id){var Div = document.getElementById(id);if(Div){Div.style.display="none"}} 
+function BtShow(id){var Div = document.getElementById(id);if(Div){Div.style.display="block"}} 
+function BtPopload(showId){ 
+// 高度减去 4px，避免在页面无滚动条时显示遮罩后出现流动条 
+var h = (Math.max(document.documentElement.scrollHeight,document.documentElement.clientHeight) - 4) + 'px'; 
+var w = document.documentElement.scrollWidth + 'px'; 
+var popCss = "background:#FFF;opacity:0.3;filter:alpha(opacity=30);position:absolute;left:0;top:0;overflow:hidden;border:0"//遮罩背景 
+var rePosition_mask = function() { 
+pop_Box.style.height = h; 
+pop_Box.style.width = w; 
+pop_Iframe.style.height = h; 
+pop_Iframe.style.width = w; 
+if (document.documentElement.offsetWidth < 950) { 
+//防止正常宽度下点击时 在 ff 下出现页面滚动到顶部 
+document.documentElement.style.overflowX = "hidden"; 
+} 
+} 
+var exsit = document.getElementById("popBox"); 
+if (!exsit) { 
+var pop_Box = document.createElement("div"); 
+pop_Box.id = "popBox"; 
+document.getElementsByTagName("body")[0].appendChild(pop_Box); 
+pop_Box.style.cssText = popCss; 
+pop_Box.style.zIndex = "10"; 
+var pop_Iframe = document.createElement("iframe"); // 这里如果用 div 的话，在 ie6 不能把 <select> 遮住 
+pop_Iframe.id = "popIframe"; 
+document.getElementsByTagName("body")[0].appendChild(pop_Iframe); 
+pop_Iframe.style.cssText = popCss; 
+pop_Iframe.style.zIndex = "9"; 
+rePosition_mask(); 
+} 
+BtShow("popIframe"); 
+BtShow("popBox"); 
+BtShow(showId); 
+var pop_Win = document.getElementById(showId); 
+pop_Win.style.position = "absolute"; 
+pop_Win.style.zIndex = "11"; 
+var rePosition_pop = function() { 
+pop_Win.style.top = document.documentElement.scrollTop + document.body.scrollTop + document.documentElement.clientHeight/2 - pop_Win.offsetHeight/2 + 'px'; 
+pop_Win.style.left = document.documentElement.scrollLeft + document.body.scrollLeft + document.documentElement.clientWidth/2 - pop_Win.offsetWidth/2 + 'px'; 
+} 
+rePosition_pop(); 
+window.onresize = function(){ 
+w = document.documentElement.offsetWidth + 'px'; // 使用 scrollWidth 不能改变宽度
+rePosition_mask(); 
+rePosition_pop(); 
+} 
+window.onscroll = function(){ 
+rePosition_pop(); 
+} 
+} 
+function BtPopShow(Bid,Did) { 
+var UploadBtn = document.getElementById(Bid); 
+if (UploadBtn){UploadBtn.onclick = function() {BtPopload(Did);return false;}} 
+} 
+function BtPopHide(Bid,Did) { 
+var UploadBtn = document.getElementById(Bid); 
+if (UploadBtn){UploadBtn.onclick = function() {BtHide(Did);BtHide("popBox");BtHide("popIframe");return false;}} 
+} 
+</script> 
+ </head>
+ <body class="home-template">
+<div class="navbar-fixed-top">
+  <iframe src="top.html" width="100%" height="30px" scrolling="no" frameborder="0"></iframe>
+</div>
+<iframe src="Logo_title.html" width="100%" height="120px" scrolling="no" frameborder="0"></iframe>
+  <div class="navbar-inverse" style="background-color:#C00;">
+<div class="container">
+<div class="navbar-header">
+  <a class="navbar-brand hidden-sm" style="color:#FFFFFF" href="index.html">主页</a>
+  <a class="navbar-brand hidden-sm" style="color:#FFFFFF" href="Sort.html">分类</a>
+  </div>
+</div>
+</div>
+	
+	<div class="page-content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<ol class="breadcrumb" id="option">
+						<li><a href="index.html" class="band_text">首页</a></li>
+						<li class="active band_text">详情</li>
+					</ol>
+				</div>
+			</div>
+			<div class="row container_border">
+				<div class="col-md-10 col-sm-10 single-item">
+					<div class="row">
+						<div class="col-md-5 col-sm-5" style="margin-top:20px;">
+							<div class="carousel slide clearfix" id="itemsingle"  align="center">
+							
+								<div class="carousel-inner">
+								  <div class="item active">
+									<img alt="slider detail dodolan manuk" src="img/small.jpg" width="250px" height="320px">
+								  </div>
+								  <div class="item">
+									<img alt="slider detail dodolan manuk" src="img/small.jpg" width="250px" height="320px">
+								  </div>
+								  <div class="item">
+									<img alt="slider detail dodolan manuk" src="img/small.jpg" width="250px" height="320px">
+								  </div>
+								</div>
+							
+								<div class="carousel-indicators" style="float:left; margin-bottom:-40px" align="center">
+								  <li style="width:30%" class="active" data-target="#itemsingle" data-slide-to="0">
+                                  	<img class="img-responsive" alt="slider detail dodolan manuk" src="img/small.jpg"></li>
+								  <li style="width:30%" data-target="#itemsingle" data-slide-to="1">
+                                  	<img class="img-responsive" alt="slider detail dodolan manuk" src="img/small.jpg"></li>
+								  <li style="width:30%" data-target="#itemsingle" data-slide-to="2">
+                                  	<img class="img-responsive" alt="slider detail dodolan manuk" src="img/small.jpg"></li>
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-md-6 col-sm-6" style="	border: thin solid #CCCCCC; padding:10px; margin-top:20px">
+							<h3>VanillaChocolate小西装外套</h3>
+                            <h4>价格：￥<span>200</span></h4>
+                            <div class="row" style="padding-left:15px; padding-right:15px;">
+								<h4  style="color:#F00" class="pull-left">物谷币支付：￥<span>192</span></h4>
+                            	<h5 class="pull-right"><a href="#" style="color:#999" class="fa fa-hand-o-right">物谷币充值</a></h5>
+                            </div>
+							<div class="row save">立即节省：￥<span>8</span></div>
+                            <div class="row">
+                            	<div class="col-lg-6">
+							<label for="selectColor">颜色：</label>
+							<select class="form-control">
+  							<option>红色</option>
+  							<option>米色</option>
+ 							<option>蓝色</option>	
+							</select></div>
+                            <div class="col-lg-6">
+							<label for="selectCount">尺码：</label>
+							<select class="form-control">
+  							<option>大</option>
+  							<option>中</option>
+ 							<option>小</option>	
+							</select></div>
+                            </div>
+                            <label>数量：</label>
+                            <input type="number" class="form-control" style="width:47%" id="product-keyword1" min="1" placeholder="1">
+							<div class="row">
+								<div class="lead pull-left col-md-3" style="padding-top:10px;">
+                            		<a id="open_1" class="btn btn-default btn-large" style="background-color:#F00;font-weight:bold; color:#FFF" href="#">
+                                    <i class="fa fa-automobile"></i> 加入购物车</a>
+                            	</div>
+                                <div class="lead col-md-3" style="padding-top:10px;">
+                            		<a id="collect" class="btn btn-default btn-large" style="background-color:#F00; font-weight:bold; color:#FFF" href="#">
+                                    <i class="fa fa-heart"></i> 收藏此商品</a>
+                            	</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="padding-top:80px">
+						<div class="col-md-12 product-tabs" id="evaluate">
+							<ul class="nav nav-tabs" id="myTab">
+						      <li class="active"><a href="#info" class="recommend_text" data-toggle="tab">商品信息</a></li>
+						      <li><a name="evaluate" href="#review" class="recommend_text" data-toggle="tab">用户评价</a></li>
+						    </ul>
+						    <div class="tab-content" id="myTabContent">
+						      <div class="tab-pane fade active in" id="info" style="padding:5px; border-left:#CCC solid thin; border-right:#CCC solid thin;">
+                         			<li> 商品描述</li>
+									<p>宽松的款式不挑人，嫩嫩的薄荷绿色显得格外洋气！</p>
+
+									<li>品牌故事</li>
+									<p>April Jane 四月简：四月是万物复苏的季节，象征着活力与热情，四月简就是在这样一个浪漫的季节诞生的。简约至上，是四月简的品牌主旨。简约而不简单，注重细节与品质，		
+                                    为生活在大都市的女人们提供性价比最高的女装。</p>
+
+									<li>季节</li>
+									<p>秋冬款(基本款basic)</p>
+    
+									<li>洗涤方法</li>
+									<p>建议干洗/手洗</p>
+						      </div>
+						      <div class="tab-pane fade" id="review" style="padding:10px; text-align:center; border-left:#CCC solid thin; border-right:#CCC solid thin;">
+								<div class="row" style="background-color:#EBEBEB; padding:8px; margin-left:5px; margin-right:5px; font-weight:bold">
+                                	<div class="col-lg-6">购买心得</div>
+                                    <div class="col-lg-2">满意度</div>
+                                    <div class="col-lg-2">购买信息</div>
+                                    <div class="col-lg-2">评论者</div>
+                                </div>
+                                <div class="row" style="margin-left:1px; margin-top:3px; margin-right:1px; margin-bottom:3px; font-size:12px; color:#999; border-bottom:#CCC solid thin">
+                                	<div class="col-lg-6">
+                                    	<span class="col-lg-9">衣服很好，做工不错，就是面料的味道有点大啊，卖家应该给衣服去去味的</span>
+                                        <span class="col-lg-3">2015-01-22 20:16:37</span>
+                                    </div>
+                                    <div class="col-lg-2">
+                                    	<p class="col-md-11" style="color:#ECB013;font-size:16px; margin-top:10px;">
+                    						<i class="glyphicon glyphicon-star pull-left"></i>
+                                            <i class="glyphicon glyphicon-star pull-left"></i>
+                                            <i class="glyphicon glyphicon-star pull-left"></i>
+                                            <i class="glyphicon glyphicon-star pull-left"></i>
+                                            <i class="glyphicon glyphicon-star pull-left"></i>
+                    					</p>
+                                    </div>
+                                    <div class="col-lg-2">
+                                    	<p>颜色：绿野仙踪</p>
+                                        <p>型号：S</p>
+                                    </div>
+                                    <div class="col-lg-2">
+                                    <img src="img/bottom2.jpg" width="20px" height="20px"><span>用户名哔哩啪啦</span>
+                                    <p>银牌会员（用户等级描述）</p>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-left:1px; margin-top:3px; margin-right:1px; margin-bottom:3px; font-size:12px; color:#999; border-bottom:#CCC solid thin">
+                                	<div class="col-lg-6">
+                                    	<span class="col-lg-9">衣服很好，做工不错，就是面料的味道有点大啊，卖家应该给衣服去去味的</span>
+                                        <span class="col-lg-3">2015-01-22 20:16:37</span>
+                                    </div>
+                                    <div class="col-lg-2">
+                                    	<p class="col-md-11" style="color:#ECB013;font-size:16px; margin-top:10px;">
+                    						<i class="glyphicon glyphicon-star pull-left"></i>
+                                            <i class="glyphicon glyphicon-star pull-left"></i>
+                                            <i class="glyphicon glyphicon-star pull-left"></i>
+                                            <i class="glyphicon glyphicon-star pull-left"></i>
+                                            <i class="glyphicon glyphicon-star pull-left"></i>
+                    					</p>
+                                    </div>
+                                    <div class="col-lg-2">
+                                    	<p>颜色：绿野仙踪</p>
+                                        <p>型号：S</p>
+                                    </div>
+                                    <div class="col-lg-2">
+                                    <img src="img/bottom2.jpg" width="20px" height="20px"><span>用户名哔哩啪啦</span>
+                                    <p>金牌会员</p>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-left:1px; margin-top:3px; margin-right:1px; margin-bottom:3px; font-size:12px; color:#999; border-bottom:#CCC solid thin">
+                                	<div class="col-lg-6">
+                                    	<span class="col-lg-9">衣服很好，做工不错，就是面料的味道有点大啊，卖家应该给衣服去去味的</span>
+                                        <span class="col-lg-3">2015-01-22 20:16:37</span>
+                                    </div>
+                                    <div class="col-lg-2">
+                                    	<p class="col-md-11" style="color:#ECB013;font-size:16px; margin-top:10px;">
+                    						<i class="glyphicon glyphicon-star pull-left"></i>
+                                            <i class="glyphicon glyphicon-star pull-left"></i>
+                                            <i class="glyphicon glyphicon-star pull-left"></i>
+                                           
+                    					</p>
+                                    </div>
+                                    <div class="col-lg-2">
+                                    	<p>颜色：绿野仙踪</p>
+                                        <p>型号：S</p>
+                                    </div>
+                                    <div class="col-lg-2">
+                                    <img src="img/bottom2.jpg" width="20px" height="20px"><span>用户名哔哩啪啦</span>
+                                    <p>钻石会员</p>
+                                    </div>
+                                </div>
+						      </div>
+						      
+						    </div>
+
+						</div>
+					</div>
+				</div>
+				<div align="center" class="col-md-2 col-sm-2 guess_like" style="border-bottom:#CCC solid thin">
+					<div class="recommend_title"><h4>猜你喜欢</h4></div>
+				
+				 <div class="recommend" id="option">
+				<a href="product_detail.html" title="VanillaChocolate" onClick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])">
+                <img class="lazy" src="img/guess.jpg" width="180" height="220" data-src="img/guess.jpg" alt="Headroom.js"></a>
+				 <h6> <a href="product_detail.html" class="recommend_text" title="VanillaChocolate小西装外套" onClick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])">
+                 <abbr title="VanillaChocolate 中长款纯色一粒扣毛呢大衣女宽松厚呢子外套V442274577黑色">VanillaChocolate呢子外套</abbr><br>
+                 <span style="color:#F00">物谷价：￥345</span>
+		  		</a></h6></div>
+		  		 <div class="recommend" id="option">
+				<a href="product_detail.html" title="VanillaChocolate" onClick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])">
+                <img class="lazy" src="img/guess.jpg" width="180" height="220" data-src="img/guess.jpg" alt="Headroom.js"></a>
+				 <h6> <a href="product_detail.html" class="recommend_text" title="VanillaChocolate小西装外套" onClick="_hmt.push(['_trackEvent', 'tile', 'click', 'codeguide'])">
+                 <abbr title="VanillaChocolate 中长款纯色一粒扣毛呢大衣女宽松厚呢子外套V442274577黑色">VanillaChocolate呢子外套</abbr><br>
+                 <span style="color:#F00">物谷价：￥345</span>
+		  		</a></h6></div>
+				</div>
+				
+				</div>
+                <div id="tinybox_1" style="background-color:#D5D5D5"> 
+                <div class="row"><h4 class="shop_car_title">商品加入购物车</h4></div>
+                    <div class="shop_car_container">
+                    <div class="row">
+                    	<div class="col-md-5">
+                        	<img width="150px" height="192px" src="img/small.jpg">
+                            <p>您的购物袋共有<span>0</span>件物品<br>总计：￥<span>0</span>元</p>
+                        </div>
+                        <div class="col-md-7">
+                        	<div class="shop_car_description row">
+                                <h4 class="pull-left">VanillaChocolate呢子外套</h4>
+                                <hr>
+                                <span class="pull-left">颜色：白&nbsp;&nbsp;</span>
+                                <hr>
+                                <span class="pull-left">尺码：L</span>
+                                <br>
+                                <span class="pull-left" style="color:#F00; font-weight:bolder">价格：￥100</span>    
+                                <br>
+                                <span class="pull-left" style="color:#F00; font-weight:bolder">物谷币支付：￥90</span>
+                                <br>
+                                <a href="#" class="pull-left" style="color:#999"><i class="fa fa-hand-o-right"></i>充值物谷币</a> 
+                                                            
+                            </div>
+                            <br>
+                            <div class="row">
+                            	<a class="col-md-4 btn btn-default" style="margin-right:15px; background-color:#F00; font-weight:bold; color:#FFF;" href="#" id="close_1">继续购物</a>
+                                <a class="col-md-4 btn btn-default" style="background-color:#F00; font-weight:bold; color:#FFF;" href="order_products.html" target="_blank">去付款</a>
+                            </div>
+                            
+                        </div>
+                    	<!--<a href="#" id="close_1">关闭</a> -->
+                    </div>
+					</div>
+				</div> 
+				</div>
+			<Iframe style="padding-top:10px" src="bottom.html" width="100%" height="250px" scrolling="no" frameborder="0"></iframe> 
+			</div>
+			 
+		</div>
+	</div>
+	<script type="text/javascript"> 
+	BtPopShow("open_1","tinybox_1"); 
+	BtPopHide("close_1","tinybox_1") 
+</script> 
+ </body>
+</html>

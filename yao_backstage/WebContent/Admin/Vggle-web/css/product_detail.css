@@ -1,0 +1,121 @@
+#option a:link{
+	color:#F0000; 
+	text-decoration:none;
+	}
+#option a:visiteid { 
+	background-color:#CCCCCC;
+	color:#FF0000; 
+	text-decoration:none; 
+	} 
+#option a:hover{color:#565656; 
+text-decoration:underline; } 
+#option a:active {
+} 
+.band_text{
+	text-decoration:none;
+	color:#000000;
+	font-size:12px;
+	font-weight:lighter;
+	margin-right:15px;
+	padding-right:5px;
+	padding-bottom:5px;
+}
+.recommend_text{
+	text-decoration:none;
+	text-align:center;
+	color:#000;
+	font-size:14px;
+	font-weight:lighter;
+	margin-right:15px;
+	padding-right:5px;
+	padding-bottom:5px;
+	}
+.container_border{
+	border: 1px solid #CCCCCC;
+	margin-top:-15px;
+}
+.guess_like{
+	margin-top: -15px;
+	border-left-width: thin;
+	border-left-style: solid;
+	border-left-color: #CCCCCC;
+	}
+.recommend{
+	border-top-width: thin;
+	border-top-style: solid;
+	border-top-color: #CCCCCC; 
+	margin-left:-15px; 
+	margin-right:-15px}
+.recommend_title{
+	margin-top:10px;
+	margin-bottom:10px;
+	padding: 3px;
+	width: 100%;
+	text-align: center;
+	border: thin solid #BCBCBC;	
+	}
+#evaluate a:link{
+	color: #000000;
+	text-decoration: none;
+	font-size: large;
+	font-weight: bold;
+	}
+#evaluate a:visiteid { 
+	background-color:#CCCCCC;
+	color:#000;
+	text-decoration:none; 
+	} 
+#evaluate a:hover{
+	color:#666;
+	text-decoration: none;
+} 
+#evaluate a:active {
+} 
+#tinybox_1 {
+	position: absolute;
+	width: 25%;
+	height: 300px;
+	background: #FFF;
+	display: none;
+	z-index: 99999;
+	border: 2px solid #A9A9A9;
+	display: none;
+	text-align: center;
+	padding: 10px;
+} 
+
+.shop_car_title{
+	float:left;
+	margin-left:15px;
+	margin-top:-1px;}
+.shop_car_container{
+	width: 100%;
+	height: 90%;
+	padding: 5px;
+	background-color: #FFF;
+	}
+.shop_car_img{
+	padding: 5px;
+	border: thin solid #ACACAC;	
+	width:90%;
+	height:85%;
+	}
+.shop_car_description{
+	width:100%;
+	height:80%
+	margin-left:-15px;
+
+	}
+.save{
+	border-top-width: thin;
+	border-bottom-width: thin;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color:#DCDCDC;
+	border-bottom-color:#DCDCDC;
+	padding:5px;
+	font-weight:bold;
+	color:#F00;
+	margin-left:1px;;
+	margin-right:1px;
+	}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiuyi.yao.dao.product.ProductDao">
+	<insert id="insertProduct" parameterType="ProductDto">
+		insert into Products
+		(
+			prod_id, 			prod_name, 			prod_commonName, 	prod_pinyin, 		prod_firstABC, 		type_id, 			second_id, 
+			third_id, 			brand_id, 			shape_id,			kind_id, 			wh_id, 				prod_discount, 	    prod_certno, 
+			prod_taboo,			prod_date, 			prod_keepdate, 		prod_storage, 		prod_function,  	prod_usage, 		prod_chengfen,		
+			prod_bad, 			prod_chandi, 		img_id, 			format_id
+		)
+		values
+		(
+			#{prod_id},			#{prod_name},		#{prod_commonName},	#{prod_pinyin},		#{prod_firstABC},	#{type_id},	        #{second_id},
+			#{third_id},		#{brand_id},		#{shape_id},		#{kind_id},			#{wh_id},			#{prod_discount},	#{prod_certno},   
+			#{prod_taboo},		#{prod_date},		#{prod_keepdate},	#{prod_storage},	#{prod_function},	#{prod_usage},		#{prod_chengfen},	
+			#{prod_bad},		#{prod_chandi},		#{img_id},			#{format_id}			
+		)
+	</insert>
+</mapper>

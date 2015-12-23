@@ -1,0 +1,29 @@
+.index_titleline{
+border-bottom-width:thin;
+border-bottom-style: solid;
+border-bottom-color:#C00;
+}
+.themecolor{
+background-color:#c49800;
+}
+.index_price{
+color:#FF0000;
+}
+.index_linkstyle{
+text-decoration:none;
+color:#000000;
+}
+#tinybox_1 { 
+position:absolute; 
+width:1002px; 
+height:80px; 
+background:#FFF; 
+display: none; 
+z-index: 99999; 
+border:5px solid red; 
+display:none; 
+text-align:center; 
+padding:10px 
+} 
+#tinybox_1 h4{ display:block; margin:0 auto; width:1002px; line-height:40px} 
+.main{ width:98%; height:2000px; margin:0 auto; border:2px solid red; } 

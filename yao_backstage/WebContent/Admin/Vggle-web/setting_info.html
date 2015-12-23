@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://static.bootcss.com/www/assets/css/site.min.css?v3" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/personal_center.css">
+  <script language="javascript" src="js/PCASClass.js"></script>
+  <title>个人信息设置</title>
+ </head>
+ <script>
+ function showbasic(){
+		var divinfo = document.getElementById("basic_info");
+		var divaddress = document.getElementById("goods_address");
+			divinfo.style.display="block";
+			divaddress.style.display="none";
+		var a_info = document.getElementById("info");
+		var a_address = document.getElementById("address");
+		
+		a_info.className="personal_choose";
+		a_address.className="personal_unchoose";
+		
+	}
+	function showaddress(){
+		var divinfo = document.getElementById("basic_info");
+		var divaddress = document.getElementById("goods_address");
+			divinfo.style.display="none";
+			divaddress.style.display="block";
+		var a_info = document.getElementById("info");
+		var a_address = document.getElementById("address");
+		
+		a_info.className="personal_unchoose";
+		a_address.className="personal_choose";
+		
+		
+	}
+	function showImage(obj)
+	{
+			var img1=document.getElementById("img1");
+			if(img1!=null){alert("OK");}
+			switch(selectBrowser())
+			{
+				case 2:
+					img1.src = window.URL.createObjectURL(obj.files[0]);
+					break;
+				case 1:
+				
+					img1.src = obj.value;
+					break;
+				default:
+					alert("浏览器不兼容！");
+			}
+			img.style.display = "inline";
+		
+		
+		
+		
+	}
+ </script>
+ <body class="home-template" style="background-color:#DDD;">
+ <div class="navbar-fixed-top">
+ 	<iframe src="top.html" width="100%" height="30px" scrolling="no" frameborder="0"></iframe>
+ </div>
+ <div class="nav  logo_line" style="background-color:#FFF;">
+ 	<div class="container">
+    	<div class="col-md-9"><img src="img/redlogo.jpg"></div>
+        <div class="col-md-2"><img src="img/redlogo_right.jpg"></div>
+    </div>
+ </div><!--top-->
+<div class="container" style="background-color:#FFF;">
+	
+	<div class="row row_title">
+    	<h3 class="pull-left col-md-10" style="color:#C00;">我的物谷</h3>
+    	<a href="#" class="col-md-2" style="color:#C00; margin-top:20px; float:right"><i class="fa fa-bell-o"></i>物谷在线客服</a>
+    </div>
+   
+   <div class="row">
+   		<div class="col-md-2" id="menu">
+        	<a class="btn btn-default btn-large row menu_item" href="personal_center.html"><i class="fa fa-list-alt"></i> 我的订单</a>
+            <a class="btn btn-default btn-large row menu_item" href="personal_center.html#attention"><i class="fa fa-star"></i> 我的关注</a>
+            <a class="btn btn-default btn-large row menu_item" href="balance.html"><i class="fa fa-key"></i> 小金库</a>
+            <a class="btn btn-default btn-large row menu_item" href="returned_goods"><i class="fa fa-delicious"></i> 返修退换货</a>
+            <a class="btn btn-default btn-large row menu_item" href="#"><i class="fa fa-asterisk"></i> 个人信息设置</a>
+            <a class="btn btn-default btn-large row menu_item" href="#"><i class="fa fa-question-circle"></i> 常见问题</a>
+        </div>
+        <div class="col-md-10"> 
+             <div class="panel panel-default" style="margin-top:5px; height:680px;" id="fix">
+                 <div class="panel-heading" id="total">
+                 	<a class="total_order">个人信息设置</a>
+                 </div>
+                 <div class="panel-body" style="margin-top:-5px;">
+                    <div class="row" style="padding-left:10px;" id="personal">
+                    	<a id="info" onClick="showbasic()" class="personal_choose">基本信息</a>
+                        <a id="address" onClick="showaddress()" class="personal_unchoose">收货地址</a>
+                    </div>
+                    <!--基本信息-->
+                    <div id="basic_info" style="margin-top:10px; border:#CCC solid thin; display:block;">
+                    	<div class="row">
+                        	<div class="col-md-7" style="padding-top:5px; border-right:#CCC solid thin;">
+                            	<div class="row">
+        							<div class="col-md-2"><p class="basic_info_text pull-right"> 昵称</p></div>
+            						<div class="col-md-10"><input type="text" style="width:200px;"></div>
+                                </div>
+                                <div class="row">
+        							<div class="col-md-2"><p class="basic_info_text pull-right"> 性别</p></div>
+            						<div class="col-md-10">
+                                    	<input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="male">男
+                                        <input style="margin-left:20px;" type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="female">女
+                                    </div>
+                                </div>
+                                <div class="row">
+        							<div class="col-md-2"><p class="basic_info_text pull-right"> 邮箱</p></div>
+            						<div class="col-md-10"><input type="email" style="width:200px;"></div>
+                                </div>
+                                <div class="row">
+        							<div class="col-md-2"><p class="basic_info_text pull-right"> 真实姓名</p></div>
+            						<div class="col-md-10"><input type="email" style="width:200px;"></div>
+                                </div>
+                                <div class="row">
+        							<div class="col-md-2"><p class="basic_info_text pull-right"> 所在地</p></div>
+            						<div class="col-md-3">
+                    					<select name="province3" style="width:135px; margin-right:5px"></select>
+            						</div>
+            						<div class="col-md-3">
+                    					<select name="city3" style="width:135px;margin-right:5px"></select>
+            						</div>
+            						<div class="col-md-3">
+                    					<select name="area3" style="width:135px"></select>
+            						</div>
+                                </div>
+                                <div class="row">
+        							<div class="col-md-2"><p class="basic_info_text pull-right"> 详细地址</p></div>
+            						<div class="col-md-10"><input type="email" style="width:350px;"></div>
+                                </div>
+                                 <div class="row">
+        							<div class="col-md-3" style="margin-left:10px;">
+                                    <input type="submit" style=" width:100px;" value="提交">
+                                    </p></div>
+            						
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                            	<div class="col-md-7" style="margin-top:20px;">
+								<img id="img1" src="img/head.jpg" width="180px" height="180px" class="img-circle lazy">
+                                </div>
+                                <div class="col-md-5" style="padding-right:15px;">
+                                	<div class="row" style="margin-top:20px;">
+                                    	<h4>No.369蛇精病患者<br></h4>
+                                        <p><img src="img/铜牌.jpg" width="30px" height="30px"> <span style="font-size:16px">铜牌会员</span></p>
+                                        <p>购物等级：<span>2</span></p>
+                                        <p>会员类型：<span>个人用户</span></p>
+                                    </div>
+                                    <div class="row">
+                                    	<input type="file" name=first style="display: none;" onchange="showImage1(this);ye.value=value ">
+                             			<input type=button class="btn btn-default" value="上传头像" onclick=first.click()>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--收货地址-->
+                    <div id="goods_address" style="background-color:#F90;margin-top:10px; display:block;">address</div>
+                 </div>
+                       
+             </div>
+       	</div>
+   </div>
+</div> 
+
+<Iframe src="bottom_1.html" width="100%" height="150px" scrolling="no" frameborder="0"></iframe> 
+<!--bottom-->
+<script language="javascript" defer>
+new PCAS("province3","city3","area3");
+</script>
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="http://cdn.bootcss.com/unveil/1.3.0/jquery.unveil.min.js"></script>
+<script src="http://cdn.bootcss.com/scrollup/2.4.0/jquery.scrollUp.min.js"></script>
+<script src="http://cdn.bootcss.com/toc/0.3.2/toc.min.js"></script>
+<script src="http://static.bootcss.com/www/assets/js/site.min.js"></script>
+<script src="http://cdn.bootcss.com/holder/2.4.1/holder.js"></script>
+<script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+ </body>
+</html>

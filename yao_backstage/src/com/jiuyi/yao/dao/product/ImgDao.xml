@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiuyi.yao.dao.product.ImgDao">
+	<!-- 1.添加图片 -->
+	<insert id="insertImg" parameterType="ImgDto">
+		insert into Img
+		(
+			img_id,		prod_id,		img_src,		img_type
+		)
+		values
+		(
+			#{img_id},	#{prod_id},		#{img_src},		#{img_type}
+		)
+	</insert>
+</mapper>

@@ -1,0 +1,139 @@
+.sort_left{
+	padding:10px;
+	border: thin solid #CCCCCC;
+	width:38%;
+	height:200px;
+	float:left;
+}
+.sort_right{
+	padding:10px;
+	border: thin solid #CCCCCC;
+	width:70%;
+	height:200px;
+	float:right;
+}
+.sort_price{
+text-align:center;
+}
+.sort_img{
+background:#00FF33;
+width:180px;
+height:230px; margin-left:-5px;
+text-align:center;}
+
+.sort_textcolor{
+color:#FFFFFF;
+font-size:18px;
+font-family:"Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif;
+}
+.sort_dropdown_container{
+	width:500px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-left: 35px;
+	color:#999999;
+}
+.sort_menu_title{
+	color:#666666;
+	font-size:12px;
+	text-decoration:none;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.sort_menu_text{
+font-size:12px;
+text-decoration:none;
+color:#999999;
+}
+.sort_menu_line{
+	border-bottom-width: thin;
+	border-bottom-style: solid;
+	border-bottom-color:#D8D8D8;
+	width:100%;
+	padding-bottom:5px;
+}
+.sort_item_padding{
+padding-bottom:5px;}
+
+.sort_second_title{
+	text-align:center;
+	width:100%;
+	margin-top:10px;
+	margin-bottom:10px;
+	font-weight: bold;
+	font-size:18px;
+}
+.second_menu1{
+	text-decoration:none;
+	color:#000000;
+	font-size:14px;
+}
+.second_menu2{
+	text-decoration:none;
+	color:#000000;
+	font-size:12px;
+	font-weight:lighter;
+}
+#sidebar a:link{
+	color:#F0000; 
+	text-decoration:none;
+	}
+#sidebar a:visiteid { 
+	color:#00FF00; 
+	text-decoration:none; 
+	} 
+#sidebar a:hover{color:#C00; 
+text-decoration:none; } 
+
+
+
+
+#option a:link{
+	color:#F0000; 
+	text-decoration:none;
+	}
+#option a:visiteid { 
+	background-color:#CCCCCC;
+	color:#FF0000; 
+	text-decoration:none; 
+	} 
+#option a:hover{color:#C00; 
+text-decoration:underline; } 
+#option a:active {
+
+} 
+.band_text{
+	text-decoration:none;
+	color:#000000;
+	font-size:12px;
+	font-weight:lighter;
+	margin-right:15px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:5px;
+	background-color:#fff;
+}
+.band_text_visited{
+	background-color:#999;
+	text-decoration:none;
+	color:#000000;
+	font-size:12px;
+	font-weight:lighter;
+	margin-right:15px;
+	padding-bottom:5px;
+	padding-left:5px;
+	padding-right:5px;
+	}
+.btn_more{
+	border:#CCC thin solid;
+	 padding-bottom:5px;
+	 padding-left:18px;}
+#breadc{
+	float:left;
+	}
+#breadc li{
+	float:left;
+	}
+.bread_litext{
+	margin-right:20px;
+	}
