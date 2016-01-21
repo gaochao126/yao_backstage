@@ -57,7 +57,7 @@ public class FileUploadServlet extends BaseServlet {
 			su.setTotalMaxFileSize(40 * 1024 * 1024);
 
 			// 设定允许上传的文件
-			su.setAllowedFilesList("jpg,png,jpeg");
+			su.setAllowedFilesList("jpg,png,jpeg,JPG,PNG,JPEG");
 
 			// 设定禁止上传的文件
 			su.setDeniedFilesList("exe,bat,jsp,htm,html");
