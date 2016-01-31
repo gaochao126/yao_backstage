@@ -1,5 +1,7 @@
 package com.jiuyi.yao.dao.product;
 
+import java.util.List;
+
 import com.jiuyi.yao.dto.product.ProductDto;
 
 /**
@@ -20,5 +22,29 @@ public interface ProductDao {
 	 * @Date 2015年12月17日
 	 */
 	public void insertProduct(ProductDto productDto) throws Exception;
+
+	/**
+	 * 
+	 * @number	2		@description	商品列表
+	 * 
+	 * @param productDto
+	 * @return
+	 * @throws Exception
+	 *
+	 * @Date 2016年1月29日
+	 */
+	public List<ProductDto> productList(ProductDto productDto) throws Exception;
+
+	/**
+	 * 
+	 * @number	3		@description	修改商品基本信息
+	 * 
+	 * @param productDto
+	 * @throws Exception
+	 *
+	 * @Date 2016年1月29日
+	 */
+	public void updateProd(ProductDto productDto) throws Exception;
+
 
 }

@@ -1,5 +1,9 @@
 package com.jiuyi.yao.service.product.impl;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -148,4 +152,171 @@ public class ProductServiceImpl implements ProductService {
 		responseDto.setResultDesc("添加成功");
 		return responseDto;
 	}
+
+	/**
+	 * 
+	 * @number	2		@description	商品列表
+	 * 
+	 * @param productDto
+	 * @return
+	 * @throws Exception
+	 *
+	 * @Date 2016年1月29日
+	 */
+	@Override
+	public ResponseDto ProductList(ProductDto productDto) throws Exception{
+		List<ProductDto> list = productDao.productList(productDto);
+		ResponseDto responseDto = new ResponseDto();
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+		responseDto.setDetail(map);
+		responseDto.setResultCode(0);
+		responseDto.setResultDesc("商品列表");
+		return responseDto;
+	}
+
+	/**
+	 * 
+	 * @number	3		@description	商品详情
+	 * 
+	 * @return
+	 * @throws Exception
+	 *
+	 * @Date 2016年1月29日
+	 */
+	@Override
+	public ResponseDto productDetail(ProductDto productDto) throws Exception {
+		if (productDto == null) {
+			throw new BusinessException("数据异常");
+		}
+		if (!Util.isNotEmpty(productDto.getProd_id())) {
+			throw new BusinessException("商品id不能为空");
+		}
+
+		// 查询商品
+		List<ProductDto> prods = productDao.productList(productDto);
+		ProductDto prod = new ProductDto();
+		if (prods != null && prods.isEmpty()) {
+			prod = prods.get(0);
+		}
+
+		// 查询规格
+		FormatDto formatDto = new FormatDto();
+		formatDto.setProd_id(productDto.getProd_id());
+		List<FormatDto> formats = formatDao.queryFormat(formatDto);
+
+		// 查询图片
+		List<ImgDto> imgs = imgDao.queryImg(productDto);
+
+		ResponseDto responseDto = new ResponseDto();
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("prod", prod);
+		map.put("formats", formats);
+		map.put("imgs", imgs);
+		responseDto.setDetail(map);
+		responseDto.setResultDesc("商品详情");
+		responseDto.setResultCode(0);
+		return responseDto;
+	}
+
+	/**
+	 * 
+	 * @number	4		@description	修改商品基本信息
+	 * 
+	 * @param productDto
+	 * @return
+	 * @throws Exception
+	 *
+	 * @Date 2016年1月29日
+	 */
+	@Override
+	public ResponseDto updateProd(ProductDto productDto) throws Exception{
+		if(productDto == null){
+			throw new BusinessException("数据异常");
+		}
+		if (!Util.isNotEmpty(productDto.getProd_id())) {
+			throw new BusinessException("商品id不能为空");
+		}
+		if (!Util.isNotEmpty(productDto.getType_id()) || !Util.isNotEmpty(productDto.getSecond_id()) || !Util.isNotEmpty(productDto.getThird_id())) {
+			throw new BusinessException("请选择商品类别");
+		}
+		if (!Util.isNotEmpty(productDto.getThird_id())) {
+			throw new BusinessException("请选择商品分类");
+		}
+		if (!Util.isNotEmpty(productDto.getBrand_id())) {
+			throw new BusinessException("请选择品牌");
+		}
+		if (!Util.isNotEmpty(productDto.getProd_name())) {
+			throw new BusinessException("请填写名称");
+		}
+		if (!Util.isNotEmpty(productDto.getProd_certno())) {
+			throw new BusinessException("请填写批准文号");
+		}
+		if (!Util.isNotEmpty(productDto.getProd_function())) {
+			throw new BusinessException("请填写功能主治");
+		}
+
+		productDao.updateProd(productDto);
+
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setResultDesc("修改基本信息");
+		responseDto.setResultCode(0);
+		return responseDto;
+	}
+
+	/**
+	 * 
+	 * @number	5		@description	删除规格
+	 * 
+	 * @param formatDto
+	 * @return
+	 * @throws Exception
+	 *
+	 * @Date 2016年1月31日
+	 */
+	@Override
+	public ResponseDto deleteFormat(FormatDto formatDto) throws Exception {
+		if (formatDto == null) {
+			throw new BusinessException("数据异常");
+		}
+		if (!Util.isNotEmpty(formatDto.getFormat_id())) {
+			throw new BusinessException("规格id不能为空");
+		}
+		formatDao.deleteFormat(formatDto);
+		ResponseDto responseDto = new ResponseDto();
+		responseDto.setResultCode(0);
+		responseDto.setResultDesc("删除成功");
+		return responseDto;
+	}
+
+	/**
+	 * 
+	 * @number		6	@description	修改规格
+	 * 
+	 * @param formatDto
+	 * @return
+	 * @throws Exception
+	 *
+	 * @Date 2016年1月31日
+	 */
+	@Override
+	public ResponseDto updateFormat(FormatDto formatDto) throws Exception {
+		if (formatDto == null) {
+			throw new BusinessException("数据不能为空");
+		}
+		if(!Util.isNotEmpty(formatDto.getProd_format())){
+			throw new BusinessException("规格不能为空");
+		}
+		if(!Util.isNotEmpty(formatDto.getProd_pack())){
+			throw new BusinessException("包装不能为空");
+		}
+		if(formatDto.getProd_price()==null){
+			throw new BusinessException("价格不能为空");
+		}
+		if (formatDto.getProd_sku() == null) {
+			throw new BusinessException("库存能为空");
+		}
+		return null;
+	}
+
 }

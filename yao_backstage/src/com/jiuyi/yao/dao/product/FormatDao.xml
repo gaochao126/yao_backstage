@@ -12,4 +12,48 @@
 			#{format_id},	#{prod_id},		#{prod_format},		#{prod_unit},	#{prod_pack},	#{prod_price},		#{prod_sku},	#{format_status}
 		)
 	</insert>
+	
+	<!-- 2.查询规格 -->
+	<select id="queryFormat" parameterType="FormatDto" resultType="FormatDto">
+		select * from Formats
+		where 1
+		<if test="prod_id != null">
+			and prod_id = #{prod_id}
+		</if>
+		<if test="format_id != null">
+			and format_id = #{format_id}
+		</if>
+	</select>
+	
+	<!-- 3.删除规格 -->
+	<delete id="deleteFormat" parameterType="FormatDto">
+		delete from Formats where format_id = #{format_id}
+	</delete>
+	
+	<!-- 4.修改规格 -->
+	<update id="updateFormat" parameterType="FormatDto">
+		update Formats format_status = 1
+		<if test="prod_format != null">
+			,prod_format = #{prod_format}
+		</if>
+		<if test="prod_unit != null">
+			,prod_unit = #{prod_unit}
+		</if>
+		<if test="prod_pack != null">
+			,prod_pack = #{prod_pack}
+		</if>
+		<if test="prod_price != null">
+			,prod_price = #{prod_price}
+		</if>
+		<if test="prod_sku !=null">
+			,prod_sku = #{prod_sku}
+		</if>
+		where 1
+		<if test="format_id != null">
+			and format_id = #{format_id}
+		</if>
+		<if test="prod_id != null">
+			,and prod_id = #{prod_id}
+		</if>
+	</update>
 </mapper>
