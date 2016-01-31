@@ -17,4 +17,92 @@
 			#{prod_bad},		#{prod_chandi},		#{img_id},			#{format_id}			
 		)
 	</insert>
+	
+	<!-- 2.商品列表 -->
+	<select id="productList" parameterType="ProductDto" resultType="ProductDto">
+		select a.*, b.* from Products a
+			LEFT JOIN Img b on a.img_id = b.img_id
+		where 
+			1=1
+		<if test="prod_id != null">
+			and prod_id = #{prod_id}
+		</if>
+		
+	</select>
+	
+	<!-- 3.修改商品基本信息 -->
+	<update id="updateProd" parameterType="ProductDto">
+		update Products set toinxex = ''
+		<if test="prod_name != null">
+			,prod_name = #{prod_name}
+		</if>
+		<if test="prod_commonName != null">
+			,prod_commonName = #{prod_commonName}
+		</if>
+		<if test="prod_pinyin != null">
+			,prod_pinyin = #{prod_pinyin}
+		</if>
+		<if test="prod_firstABC != null">
+			,prod_firstABC = #{prod_firstABC}
+		</if>
+		<if test="type_id != null">
+			,type_id  = #{type_id}
+		</if>
+		<if test="second_id != null">
+			,second_id = #{second_id}
+		</if>
+		<if test="third_id != null">
+			,third_id = #{third_id}
+		</if>
+		<if test="brand_id != null">
+			,brand_id = #{brand_id}
+		</if>
+		<if test="shape_id != null">
+			,shape_id = #{shape_id}
+		</if>
+		<if test="kind_id != null">
+			,kind_id = #{kind_id}
+		</if>
+		<if test="prod_discount != null">
+			,prod_discount = #{prod_discount}
+		</if>
+		<if test="prod_certno != null">
+			,prod_certno = #{prod_certno}
+		</if>
+		<if test="prod_date != null">
+			,prod_date = #{prod_date}
+		</if>
+		<if test="prod_keepdate != null">
+			,prod_keepdate = #{prod_keepdate}
+		</if>
+		<if test="prod_storage != null">
+			,prod_storage = #{prod_storage}
+		</if>
+		<if test="prod_function != null">
+			,prod_function = #{prod_function}
+		</if>
+		<if test="prod_usage != null">
+			,prod_usage = #{prod_usage}
+		</if>
+		<if test="prod_chengfen != null">
+			,prod_chengfen = #{prod_chengfen}
+		</if>
+		<if test="prod_taboo != null">
+			,prod_taboo = #{prod_taboo}
+		</if>
+		<if test="prod_bad != null">
+			,prod_bad = #{prod_bad}
+		</if>
+		<if test="prod_chandi != null">
+			,prod_chandi = #{prod_chandi}
+		</if>
+		<if test="format_id != null">
+			,format_id = #{format_id}
+		</if>
+		where 1
+		<if test="prod_id != null">
+			and prod_id = #{prod_id}
+		</if>
+	</update>
+	
 </mapper>

@@ -20,8 +20,8 @@ public class FormatDto extends BaseDto {
 	private String prod_unit;
 	private String prod_pack;
 	private BigDecimal prod_price;
-	private int prod_sku;
-	private int format_status;
+	private Integer prod_sku;
+	private Integer format_status;
 
 	public String getFormat_id() {
 		return format_id;
@@ -63,19 +63,19 @@ public class FormatDto extends BaseDto {
 		this.prod_price = prod_price;
 	}
 
-	public int getProd_sku() {
+	public Integer getProd_sku() {
 		return prod_sku;
 	}
 
-	public void setProd_sku(int prod_sku) {
+	public void setProd_sku(Integer prod_sku) {
 		this.prod_sku = prod_sku;
 	}
 
-	public int getFormat_status() {
+	public Integer getFormat_status() {
 		return format_status;
 	}
 
-	public void setFormat_status(int format_status) {
+	public void setFormat_status(Integer format_status) {
 		this.format_status = format_status;
 	}
 

@@ -12,4 +12,17 @@
 			#{img_id},	#{prod_id},		#{img_src},		#{img_type}
 		)
 	</insert>
+	
+	<!-- 2.查询图片 -->
+	<select id="queryImg" parameterType="ImgDto" resultType="ImgDto">
+		select * from Img
+		where 
+		1
+		<if test="prod_id != null">
+			and prod_id = #{prod_id}
+		</if>
+		<if test="img_id != null">
+			and img_id = #{img_id}
+		</if>
+	</select>
 </mapper>
