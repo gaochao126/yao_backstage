@@ -80,6 +80,7 @@ public class ProductDto extends BaseDto {
 	private List<String> packs;
 	private List<BigDecimal> prices;
 	private List<Integer> sku;
+	private String prod_code;// 商品编码
 
 	public String getProd_id() {
 		return prod_id;
@@ -351,6 +352,14 @@ public class ProductDto extends BaseDto {
 
 	public void setProd_taboo(String prod_taboo) {
 		this.prod_taboo = prod_taboo;
+	}
+
+	public String getProd_code() {
+		return prod_code;
+	}
+
+	public void setProd_code(String prod_code) {
+		this.prod_code = prod_code;
 	}
 
 }
