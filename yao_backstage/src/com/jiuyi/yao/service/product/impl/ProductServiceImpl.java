@@ -1,12 +1,24 @@
 package com.jiuyi.yao.service.product.impl;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jiuyi.yao.common.Constants;
+import com.jiuyi.yao.common.PinYinUtil;
 import com.jiuyi.yao.common.Util;
 import com.jiuyi.yao.dao.product.FormatDao;
 import com.jiuyi.yao.dao.product.ImgDao;
@@ -319,4 +331,201 @@ public class ProductServiceImpl implements ProductService {
 		return null;
 	}
 
+	/**
+	 * 
+	 * @number			@description	从excel读取药品信息·
+	 * 
+	 * @param path
+	 * @param fileName
+	 * @param fileType
+	 * @throws Exception
+	 *
+	 * @Date 2016年3月4日
+	 */
+	public static void insertProdByExcel(String path, String fileName, String fileType) throws Exception {
+		InputStream stream = new FileInputStream(path + fileName + "." + fileType);
+		Workbook wb = null;
+		if (fileType.equals("xls")) {
+			wb = new HSSFWorkbook(stream);
+		} else if (fileType.equals("xlsx")) {
+			wb = new XSSFWorkbook(stream);
+		} else {
+			System.out.println("您输入的文件格式不正确");
+		}
+
+		Sheet sheet = wb.getSheetAt(0);
+		for (Row row : sheet) {
+			if (row.getRowNum() == 0 || row.getRowNum() == 1) {
+				continue;
+			}
+			ProductDto productDto = new ProductDto();
+			FormatDto formatDto = new FormatDto();
+			ImgDto imgDto = new ImgDto();
+			for (Cell cell : row) {
+				if (cell.getColumnIndex() == 0) {
+					continue;
+				}
+				switch (cell.getColumnIndex()) {
+				case 1:// id
+					productDto.setProd_id((int) cell.getNumericCellValue() + "");
+					break;
+				case 2:// prod_code
+					productDto.setProd_code(cell.getStringCellValue());
+					break;
+				case 3:// prod_name
+					productDto.setProd_name(cell.getStringCellValue());
+					productDto.setProd_pinyin(PinYinUtil.getPingYin(productDto.getProd_name()));
+					productDto.setProd_firstABC(PinYinUtil.getFirstSpell(productDto.getProd_name()));
+					productDto.setProd_discount(1.15);
+					break;
+				case 4:// prod_commonName
+					productDto.setProd_commonName(cell.getStringCellValue());
+					break;
+				case 5:// type_id
+					productDto.setType_id(cell.getStringCellValue());
+					break;
+				case 6:// second_id
+					productDto.setSecond_id(cell.getStringCellValue().substring(0, 2));
+					break;
+				case 7:// third_id
+					productDto.setThird_id(cell.getStringCellValue().substring(0, 4));
+					break;
+				case 8:// shape_id
+						productDto.setShape_id(cell.getStringCellValue().substring(0, 2));
+					break;
+				case 9:// brand_id
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+						productDto.setBrand_id(cell.getStringCellValue().substring(0, 2));
+					}
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
+						productDto.setBrand_id("ba");
+					}
+					break;
+				case 10:// kind_id
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+						productDto.setKind_id(cell.getStringCellValue().substring(0, 2));
+					}
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
+						productDto.setKind_id("md");
+					}
+					break;
+				case 11:// prod_certno
+					productDto.setProd_certno(cell.getStringCellValue());
+					break;
+				case 12:// prod_keepdate
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+						productDto.setProd_keepdate(cell.getStringCellValue());
+					}
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
+						productDto.setProd_keepdate("见说明书");
+					}
+
+					break;
+				case 13:// prod_function
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+						productDto.setProd_function(cell.getStringCellValue());
+					}
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
+						productDto.setProd_function("见说明书");
+					}
+
+					break;
+				case 14:// prod_usage
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+						productDto.setProd_usage(cell.getStringCellValue());
+					}
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
+						productDto.setProd_usage("见说明书");
+					}
+					break;
+				case 15:// prod_chengfen
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+						productDto.setProd_chengfen(cell.getStringCellValue());
+					}
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
+						productDto.setProd_chengfen("见说明书");
+					}
+					break;
+				case 16:// prod_bad
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+						productDto.setProd_bad(cell.getStringCellValue());
+					}
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
+						productDto.setProd_bad("见说明书");
+					}
+					break;
+				case 17:// prod_taboo
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+						productDto.setProd_taboo(cell.getStringCellValue());
+					}
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
+						productDto.setProd_taboo("见说明书");
+					}
+					break;
+				case 18:// prod_chandi
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+						productDto.setProd_chandi(cell.getStringCellValue());
+					}
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
+						productDto.setProd_chandi("见说明书");
+					}
+					break;
+				case 19:// prod_format
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
+						formatDto.setFormat_id(productDto.getProd_id());
+						formatDto.setProd_id(productDto.getProd_id());
+						formatDto.setProd_format(cell.getStringCellValue());
+						formatDto.setProd_pack("见包装");
+						formatDto.setProd_unit("见包装");
+						formatDto.setProd_sku(2000);
+						formatDto.setFormat_status(1);
+						productDto.setFormat_id(productDto.getProd_id());
+						productDto.setImg_id(productDto.getProd_id());
+						imgDto.setImg_id(productDto.getProd_id());
+						imgDto.setImg_src("defaultimg.jpg");
+						imgDto.setProd_id(productDto.getProd_id());
+						imgDto.setImg_type(1);
+					}
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
+						formatDto.setFormat_id(productDto.getProd_id());
+						formatDto.setProd_id(productDto.getProd_id());
+						formatDto.setProd_format("默认规格");
+						formatDto.setProd_pack("见包装");
+						formatDto.setProd_unit("见包装");
+						formatDto.setProd_sku(2000);
+						formatDto.setFormat_status(1);
+						productDto.setFormat_id(productDto.getProd_id());
+						productDto.setImg_id(productDto.getProd_id());
+
+						imgDto.setImg_id(productDto.getProd_id());
+						imgDto.setImg_src("defaultimg.jpg");
+						imgDto.setProd_id(productDto.getProd_id());
+						imgDto.setImg_type(1);
+					}
+					break;
+				case 24:// prod_price
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_NUMERIC) {
+						formatDto.setProd_price(new BigDecimal(cell.getNumericCellValue() + ""));
+					}
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
+						formatDto.setProd_price(new BigDecimal(0));
+					}
+					break;
+				}
+			}
+			System.out.println(Constants.gson.toJson(productDto));
+			System.out.println(Constants.gson.toJson(formatDto));
+			System.out.println(Constants.gson.toJson(imgDto));
+			System.out.println("\n");
+			System.out.println(row.getRowNum() + "==============");
+		}
+
+	}
+
+	public static void main(String[] args) throws Exception {
+		String path = "F:\\html\\";
+		String fileName = "791";
+		String fileType = "xlsx";
+		insertProdByExcel(path, fileName, fileType);
+	}
 }
