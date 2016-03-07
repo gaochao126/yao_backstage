@@ -82,4 +82,14 @@ public interface ProductService {
 	 */
 	public ResponseDto updateFormat(FormatDto formatDto) throws Exception;
 
+	/**
+	 * 
+	 * @number			@description
+	 * 
+	 * @throws Exception
+	 *
+	 * @Date 2016年3月7日
+	 */
+	public void insertProdByExcel() throws Exception;
+
 }
