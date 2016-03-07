@@ -3,6 +3,7 @@ package com.jiuyi.yao.service.product.impl;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -342,7 +343,11 @@ public class ProductServiceImpl implements ProductService {
 	 *
 	 * @Date 2016年3月4日
 	 */
-	public static void insertProdByExcel(String path, String fileName, String fileType) throws Exception {
+	@Override
+	public void insertProdByExcel() throws Exception {
+		String path = "F:\\html\\";
+		String fileName = "791";
+		String fileType = "xlsx";
 		InputStream stream = new FileInputStream(path + fileName + "." + fileType);
 		Workbook wb = null;
 		if (fileType.equals("xls")) {
@@ -367,7 +372,8 @@ public class ProductServiceImpl implements ProductService {
 				}
 				switch (cell.getColumnIndex()) {
 				case 1:// id
-					productDto.setProd_id((int) cell.getNumericCellValue() + "");
+					productDto.setProd_id(((int) cell.getNumericCellValue() + 3550) + "");
+					productDto.setAdd_time(new Date());
 					break;
 				case 2:// prod_code
 					productDto.setProd_code(cell.getStringCellValue());
@@ -413,8 +419,8 @@ public class ProductServiceImpl implements ProductService {
 					productDto.setProd_certno(cell.getStringCellValue());
 					break;
 				case 12:// prod_keepdate
-					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
-						productDto.setProd_keepdate(cell.getStringCellValue());
+					if (cell.getCellType() == HSSFCell.CELL_TYPE_NUMERIC) {
+						productDto.setProd_keepdate(((int) cell.getNumericCellValue()) + "个月");
 					}
 					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
 						productDto.setProd_keepdate("见说明书");
@@ -424,28 +430,16 @@ public class ProductServiceImpl implements ProductService {
 				case 13:// prod_function
 					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
 						productDto.setProd_function(cell.getStringCellValue());
+						productDto.setProd_usage("见说明书");
+						productDto.setProd_chengfen("见说明书");
 					}
 					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
 						productDto.setProd_function("见说明书");
+						productDto.setProd_usage("见说明书");
 					}
 
 					break;
-				case 14:// prod_usage
-					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
-						productDto.setProd_usage(cell.getStringCellValue());
-					}
-					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
-						productDto.setProd_usage("见说明书");
-					}
-					break;
-				case 15:// prod_chengfen
-					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
-						productDto.setProd_chengfen(cell.getStringCellValue());
-					}
-					if (cell.getCellType() == HSSFCell.CELL_TYPE_BLANK) {
-						productDto.setProd_chengfen("见说明书");
-					}
-					break;
+
 				case 16:// prod_bad
 					if (cell.getCellType() == HSSFCell.CELL_TYPE_STRING) {
 						productDto.setProd_bad(cell.getStringCellValue());
@@ -516,16 +510,16 @@ public class ProductServiceImpl implements ProductService {
 			System.out.println(Constants.gson.toJson(productDto));
 			System.out.println(Constants.gson.toJson(formatDto));
 			System.out.println(Constants.gson.toJson(imgDto));
+			productDao.insertProduct(productDto);
+			formatDao.insertFormat(formatDto);
+			imgDao.insertImg(imgDto);
 			System.out.println("\n");
 			System.out.println(row.getRowNum() + "==============");
 		}
-
 	}
 
 	public static void main(String[] args) throws Exception {
-		String path = "F:\\html\\";
-		String fileName = "791";
-		String fileType = "xlsx";
-		insertProdByExcel(path, fileName, fileType);
+		ProductServiceImpl p = new ProductServiceImpl();
+		p.insertProdByExcel();
 	}
 }

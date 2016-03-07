@@ -1,6 +1,7 @@
 package com.jiuyi.yao.dto.product;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import com.jiuyi.yao.dto.BaseDto;
@@ -81,6 +82,7 @@ public class ProductDto extends BaseDto {
 	private List<BigDecimal> prices;
 	private List<Integer> sku;
 	private String prod_code;// 商品编码
+	private Date add_time;// 上架时间
 
 	public String getProd_id() {
 		return prod_id;
@@ -360,6 +362,14 @@ public class ProductDto extends BaseDto {
 
 	public void setProd_code(String prod_code) {
 		this.prod_code = prod_code;
+	}
+
+	public Date getAdd_time() {
+		return add_time;
+	}
+
+	public void setAdd_time(Date add_time) {
+		this.add_time = add_time;
 	}
 
 }

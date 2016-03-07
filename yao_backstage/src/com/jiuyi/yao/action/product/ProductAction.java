@@ -60,6 +60,11 @@ public class ProductAction extends BaseAction {
 		return "product_post";
 	}
 
+	public String insertProdByExcle() throws Exception {
+		productService.insertProdByExcel();
+		return "ok";
+	}
+
 	public ProductDto getProductDto() {
 		return productDto;
 	}
@@ -75,4 +80,5 @@ public class ProductAction extends BaseAction {
 	public void setResponseDto(ResponseDto responseDto) {
 		this.responseDto = responseDto;
 	}
+
 }
