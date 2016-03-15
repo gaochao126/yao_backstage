@@ -16,6 +16,7 @@
     	</action>
     	<action name="prod_*" class="com.jiuyi.yao.action.product.ProductAction" method="{1}">
     		<result name="product_post">/Admin/pages/product-post.jsp</result>
+    		<result name="ok">index.jsp</result>
     	</action>
     </package>
 </struts>
