@@ -515,6 +515,7 @@ public class ProductServiceImpl implements ProductService {
 			imgDao.insertImg(imgDto);
 			System.out.println("\n");
 			System.out.println(row.getRowNum() + "==============");
+			System.out.print("----");
 		}
 	}
 
